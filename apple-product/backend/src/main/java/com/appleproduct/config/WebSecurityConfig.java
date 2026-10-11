@@ -63,6 +63,9 @@ public class WebSecurityConfig {
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .authorizeHttpRequests(auth -> auth
+                // Public health check and root ping
+                .requestMatchers("/", "/health", "/api/health").permitAll()
+                
                 // Public authentication endpoints
                 .requestMatchers("/api/auth/register", "/api/auth/login", "/api/auth/logout").permitAll()
                 
