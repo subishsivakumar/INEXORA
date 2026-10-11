@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mba15Midnight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242933"/>
+      <stop offset="50%" stop-color="#161922"/>
+      <stop offset="100%" stop-color="#0C0E14"/>
+    </linearGradient>
+    <linearGradient id="mba15Screen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E222A"/>
+      <stop offset="100%" stop-color="#0D0F15"/>
+    </linearGradient>
+    <filter id="mba15Shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#mba15Shadow)">
+    <!-- Expansive 15.3-inch Display Lid -->
+    <rect x="52" y="32" width="216" height="142" rx="11" fill="url(#mba15Midnight)" stroke="rgba(245, 245, 247, 0.25)" stroke-width="1.2"/>
+    <!-- Liquid Retina Screen -->
+    <rect x="58" y="38" width="204" height="130" rx="7" fill="url(#mba15Screen)" stroke="#111" stroke-width="1"/>
+    
+    <!-- Camera Notch -->
+    <rect x="152" y="38" width="16" height="6" rx="2" fill="#000"/>
+    <circle cx="160" cy="41" r="1.8" fill="#1C1E26"/>
+
+    <!-- Six Speaker Sound System Base -->
+    <path d="M 22 178 L 298 178 C 300 178 302 180 300 182 L 286 202 C 284 205 280 207 276 207 L 44 207 C 40 207 36 205 34 202 L 20 182 C 18 180 20 178 22 178 Z" fill="url(#mba15Midnight)" stroke="rgba(245, 245, 247, 0.2)" stroke-width="1.2"/>
+
+    <!-- Force Touch Trackpad -->
+    <rect x="122" y="185" width="76" height="18" rx="3" fill="#1B1E26" stroke="rgba(245, 245, 247, 0.12)" stroke-width="0.8"/>
+  </g>
+</svg>

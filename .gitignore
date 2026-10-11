@@ -1,0 +1,33 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Dependencies & Build artifacts
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vite/
+**/.vite/
+target/
+**/target/
+*.class
+**/*.class
+*.jar
+**/*.jar
+!**/maven-wrapper.jar
+.mvn/.m2/
+
+# IDE & Editors
+.idea/
+*.iml
+.vscode/
+*.suo
+*.user
+
+# Environment & Local Secrets
+.env
+.env.local
+.env.*.local
+*.log
+**/logs/

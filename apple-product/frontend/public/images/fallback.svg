@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141418"/>
+      <stop offset="100%" stop-color="#0B0B0D"/>
+    </linearGradient>
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#888888" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="deviceBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#222226"/>
+      <stop offset="100%" stop-color="#111114"/>
+    </linearGradient>
+    <radialGradient id="screenGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#33333D" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0B0B0D" stop-opacity="0.9"/>
+    </radialGradient>
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)"/>
+  <rect width="398" height="398" x="1" y="1" rx="31" fill="none" stroke="url(#rimGrad)" stroke-width="1.5"/>
+
+  <!-- Device Silhouette: Premium Smartphone / Tablet Frame -->
+  <g filter="url(#subtleGlow)">
+    <!-- Outer Titanium Chasis -->
+    <rect x="110" y="60" width="180" height="280" rx="38" fill="url(#deviceBody)" stroke="#44444A" stroke-width="2"/>
+    <!-- Screen Bezel -->
+    <rect x="116" y="66" width="168" height="268" rx="32" fill="url(#screenGlow)" stroke="#1F1F24" stroke-width="1.5"/>
+    
+    <!-- Dynamic Island / Sensor Array -->
+    <rect x="175" y="80" width="50" height="14" rx="7" fill="#050507"/>
+    <circle cx="215" cy="87" r="3.5" fill="#141419"/>
+
+    <!-- Subtle Screen Glare Line -->
+    <path d="M 120 70 L 260 210 L 250 220 L 120 90 Z" fill="#FFFFFF" opacity="0.03"/>
+
+    <!-- Minimalist Apple Product Emblem Silhouette -->
+    <g transform="translate(182, 175) scale(0.7)" fill="#F5F5F7" opacity="0.25">
+      <path d="M15.5 0C14 0 11.5 1 10 2.5C8.5 4 7.5 6.5 8 9C10 9 12 8 13.5 6.5C15 5 16 2.5 15.5 0Z"/>
+      <path d="M19.5 9.5C16.5 9.5 15 8 13 8C11 8 9.5 9.5 7.5 9.5C4 9.5 1 12.5 1 18C1 23.5 6 30 9 30C10.5 30 11.5 29 13 29C14.5 29 15.5 30 17 30C20 30 25 23.5 25 18C23 17 22 15 22 13C22 10.5 23.5 9.5 24 9.5C22.5 9.5 20.5 9.5 19.5 9.5Z"/>
+    </g>
+  </g>
+
+  <!-- Typography Caption -->
+  <text x="200" y="365" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', Inter, sans-serif" font-size="12" font-weight="600" fill="#F5F5F7" opacity="0.4" text-anchor="middle" letter-spacing="1.5">
+    INEXORA
+  </text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="podWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#EAEAEF"/>
+      <stop offset="100%" stop-color="#D4D4DA"/>
+    </linearGradient>
+    <linearGradient id="podCase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8F8FC"/>
+      <stop offset="100%" stop-color="#E2E2EA"/>
+    </linearGradient>
+    <filter id="podShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#podShadow)">
+    <!-- MagSafe Charging Case Silhouette in Background -->
+    <rect x="62" y="78" width="116" height="84" rx="34" fill="url(#podCase)" stroke="rgba(245, 245, 247, 0.4)" stroke-width="1.2"/>
+    <!-- Lid Seam Cutline -->
+    <line x1="63" y1="102" x2="177" y2="102" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1"/>
+    <!-- Status LED Indicator -->
+    <circle cx="120" cy="116" r="2.5" fill="#44444C"/>
+
+    <!-- Left AirPod Pro Stem & Head -->
+    <g transform="translate(-10, -5)">
+      <!-- Head / Acoustic Vent -->
+      <path d="M 86 64 C 76 64 68 72 68 82 C 68 90 74 97 82 99 L 88 128 C 88 132 94 132 94 128 L 94 92 C 98 88 102 82 102 76 C 102 69 95 64 86 64 Z" fill="url(#podWhite)"/>
+      <rect x="74" y="76" width="6" height="12" rx="3" fill="#1A1A1E"/>
+      <rect x="88" y="104" width="3" height="10" rx="1.5" fill="#C0C0C8"/>
+    </g>
+
+    <!-- Right AirPod Pro Stem & Head -->
+    <g transform="translate(68, -5)">
+      <path d="M 84 64 C 94 64 102 72 102 82 C 102 90 96 97 88 99 L 82 128 C 82 132 76 132 76 128 L 76 92 C 72 88 68 82 68 76 C 68 69 75 64 84 64 Z" fill="url(#podWhite)"/>
+      <rect x="90" y="76" width="6" height="12" rx="3" fill="#1A1A1E"/>
+      <rect x="79" y="104" width="3" height="10" rx="1.5" fill="#C0C0C8"/>
+    </g>
+  </g>
+</svg>

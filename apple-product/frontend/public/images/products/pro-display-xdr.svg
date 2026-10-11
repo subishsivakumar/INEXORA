@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pdxScreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#24242A"/>
+      <stop offset="100%" stop-color="#0C0C10"/>
+    </linearGradient>
+    <linearGradient id="pdxStand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#686870"/>
+      <stop offset="50%" stop-color="#46464E"/>
+      <stop offset="100%" stop-color="#2C2C32"/>
+    </linearGradient>
+    <filter id="pdxShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#pdxShadow)">
+    <!-- Pro Stand Articulating Arm -->
+    <path d="M 110 138 L 130 138 L 127 195 L 113 195 Z" fill="url(#pdxStand)"/>
+    <!-- Pro Stand Base Footprint -->
+    <rect x="90" y="194" width="60" height="5" rx="2.5" fill="url(#pdxStand)" stroke="rgba(245, 245, 247, 0.25)" stroke-width="0.8"/>
+
+    <!-- 32-inch 6K Retina Enclosure with Lattice Pattern Venting -->
+    <rect x="30" y="32" width="180" height="116" rx="8" fill="#141418" stroke="rgba(245, 245, 247, 0.35)" stroke-width="1.5"/>
+    <!-- Nano-Texture Glass Screen -->
+    <rect x="36" y="38" width="168" height="104" rx="5" fill="url(#pdxScreen)" stroke="#050508" stroke-width="1"/>
+
+    <!-- Subtle Glare -->
+    <path d="M 40 40 L 190 138 L 170 138 L 40 55 Z" fill="#FFFFFF" opacity="0.04"/>
+  </g>
+</svg>
