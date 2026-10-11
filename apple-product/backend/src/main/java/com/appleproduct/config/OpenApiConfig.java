@@ -17,12 +17,12 @@ public class OpenApiConfig {
         final String securitySchemeName = "bearerAuth";
         return new OpenAPI()
                 .info(new Info()
-                        .title("Apple Product REST API")
+                        .title("iNexora REST API")
                         .version("1.0.0")
-                        .description("REST API documentation for Apple Product — Independent Apple Products Shopping Experience. Showcases exclusive Apple-branded products with verified INR pricing.")
+                        .description("REST API documentation for iNexora — Premium Apple Products Experience with verified INR pricing, 3D interactive models, and seamless shopping.")
                         .contact(new Contact()
-                                .name("Apple Product Engineering")
-                                .email("support@appleproduct.store")))
+                                .name("iNexora Engineering Team")
+                                .email("support@inexora.store")))
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(new Components()
                         .addSecuritySchemes(securitySchemeName,
