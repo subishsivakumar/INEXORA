@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://inexora.onrender.com/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/apple-product/frontend/dist/$1"
+    }
+  ]
+}
