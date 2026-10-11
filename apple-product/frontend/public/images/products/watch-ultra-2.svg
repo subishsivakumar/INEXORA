@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <!-- Grade 5 Natural Titanium Case -->
+    <linearGradient id="ultraCase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7A7874"/>
+      <stop offset="40%" stop-color="#54524E"/>
+      <stop offset="80%" stop-color="#383632"/>
+      <stop offset="100%" stop-color="#242220"/>
+    </linearGradient>
+
+    <!-- Flat 3000-Nit Sapphire Display -->
+    <linearGradient id="ultraScreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18181C"/>
+      <stop offset="100%" stop-color="#060608"/>
+    </linearGradient>
+
+    <linearGradient id="ultraGoldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#888" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <filter id="ultraShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#ultraShadow)">
+    <!-- Trail Loop Rugged Band -->
+    <path d="M 82 10 C 82 22 90 32 98 32 L 142 32 C 150 32 158 22 158 10 Z" fill="#2E2C28" stroke="#1F1E1B" stroke-width="1.2"/>
+    <path d="M 82 230 C 82 218 90 208 98 208 L 142 208 C 150 208 158 218 158 230 Z" fill="#2E2C28" stroke="#1F1E1B" stroke-width="1.2"/>
+
+    <!-- Left Edge: Signature International Orange Action Button & Dual Speaker Siren -->
+    <rect x="58" y="85" width="8" height="28" rx="3.5" fill="#FF5E00" stroke="#CC4B00" stroke-width="1"/>
+    <!-- Siren Perforations -->
+    <circle cx="62" cy="125" r="1.5" fill="#1C1C1E"/>
+    <circle cx="62" cy="132" r="1.5" fill="#1C1C1E"/>
+    <circle cx="62" cy="139" r="1.5" fill="#1C1C1E"/>
+
+    <!-- Rugged 49mm Titanium Case with Raised Bezel -->
+    <rect x="66" y="32" width="108" height="176" rx="28" fill="url(#ultraCase)" stroke="url(#ultraGoldRim)" stroke-width="1.8"/>
+
+    <!-- Flat Sapphire Crystal Screen -->
+    <rect x="74" y="40" width="92" height="160" rx="20" fill="url(#ultraScreen)" stroke="#111" stroke-width="1.2"/>
+
+    <!-- Right Edge: Raised Titanium Crown Guard & Deeply Knurled Digital Crown -->
+    <path d="M 174 65 L 180 72 L 180 148 L 174 155 Z" fill="#54524E" stroke="#383632" stroke-width="1"/>
+    <rect x="176" y="78" width="9" height="34" rx="3" fill="#2D2B28" stroke="#D4AF37" stroke-width="1.2"/>
+    <line x1="178" y1="84" x2="183" y2="84" stroke="#FF5E00" stroke-width="1.5"/>
+    <line x1="178" y1="92" x2="183" y2="92" stroke="#FF5E00" stroke-width="1.5"/>
+    <line x1="178" y1="100" x2="183" y2="100" stroke="#FF5E00" stroke-width="1.5"/>
+    <line x1="178" y1="106" x2="183" y2="106" stroke="#FF5E00" stroke-width="1.5"/>
+
+    <rect x="176" y="122" width="5" height="24" rx="2" fill="#3A3834"/>
+
+    <!-- Wayfinder Dial Graphic Accent -->
+    <circle cx="120" cy="120" r="34" fill="none" stroke="#FF5E00" stroke-width="1.2" stroke-dasharray="3, 3"/>
+    <circle cx="120" cy="120" r="26" fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <!-- Compass Pointer -->
+    <polygon points="120,98 123,118 117,118" fill="#FF5E00"/>
+    <polygon points="120,142 123,122 117,122" fill="#FFFFFF"/>
+    <circle cx="120" cy="120" r="3" fill="#D4AF37"/>
+  </g>
+</svg>

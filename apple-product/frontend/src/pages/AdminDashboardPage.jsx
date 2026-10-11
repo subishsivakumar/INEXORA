@@ -266,13 +266,14 @@ export default function AdminDashboardPage() {
               >
                 <div style={{ width: '48px', height: '48px', backgroundColor: '#FFFFFF', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', border: '1px solid #EAEAEA' }}>
                   <img
-                    src={p.primaryImageUrl || '/images/fallback.svg'}
+                    src={p.primaryImageUrl || `/images/products/${p.slug}.svg`}
                     alt=""
                     style={{ maxHeight: '40px', maxWidth: '40px', objectFit: 'contain' }}
                     loading="lazy"
+                    referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = '/images/fallback.svg';
+                      e.currentTarget.src = `/images/products/${p.slug}.svg`;
                     }}
                   />
                 </div>

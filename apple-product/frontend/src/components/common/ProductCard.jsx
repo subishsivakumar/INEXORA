@@ -123,8 +123,8 @@ export default function ProductCard({ product, onCompareToggle, isComparing }) {
   // Determine which image to show dynamically:
   // 1. Manually selected finish swatch takes top priority
   // 2. On hover (without locked finish), peek secondary perspective if available
-  // 3. Default to primary product image
-  let displayImage = product.primaryImageUrl || '/images/fallback.svg';
+  // 3. Default to primary product image or model-specific local asset
+  let displayImage = product.primaryImageUrl || `/images/products/${product.slug}.svg`;
   if (selectedFinishIndex !== null && meta?.finishes?.[selectedFinishIndex]) {
     displayImage = meta.finishes[selectedFinishIndex].img;
   } else if (isHovered && meta?.secondaryImg) {
@@ -264,9 +264,19 @@ export default function ProductCard({ product, onCompareToggle, isComparing }) {
           src={displayImage}
           alt={activeFinishName ? `${product.name} in ${activeFinishName}` : product.name}
           loading="lazy"
+          referrerPolicy="no-referrer"
           onError={(e) => {
-            e.currentTarget.onerror = null;
-            e.currentTarget.src = '/images/fallback.svg';
+            const stage = e.currentTarget.dataset.fallbackStage || 'primary';
+            if (stage === 'primary') {
+              e.currentTarget.dataset.fallbackStage = 'localProduct';
+              e.currentTarget.src = `/images/products/${product.slug}.svg`;
+            } else if (stage === 'localProduct') {
+              e.currentTarget.dataset.fallbackStage = 'category';
+              e.currentTarget.src = `/images/categories/${product.categorySlug}.svg`;
+            } else {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = '/images/fallback.svg';
+            }
           }}
           style={{
             maxHeight: '175px',

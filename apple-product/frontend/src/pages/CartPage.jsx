@@ -98,13 +98,14 @@ export default function CartPage() {
                 }}
               >
                 <img
-                  src={item.imageUrl || '/images/fallback.svg'}
+                  src={item.imageUrl || (item.productSlug ? `/images/products/${item.productSlug}.svg` : '/images/fallback.svg')}
                   alt={item.productName}
                   style={{ maxHeight: '80px', maxWidth: '100%', objectFit: 'contain' }}
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = '/images/fallback.svg';
+                    e.currentTarget.src = item.productSlug ? `/images/products/${item.productSlug}.svg` : '/images/fallback.svg';
                   }}
                 />
               </div>

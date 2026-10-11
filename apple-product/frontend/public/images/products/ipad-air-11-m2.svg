@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="airSpaceGray" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E4E56"/>
+      <stop offset="100%" stop-color="#28282E"/>
+    </linearGradient>
+    <linearGradient id="airScreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#222228"/>
+      <stop offset="100%" stop-color="#0E0E12"/>
+    </linearGradient>
+    <filter id="airShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#airShadow)">
+    <rect x="52" y="30" width="136" height="180" rx="18" fill="url(#airSpaceGray)" stroke="rgba(245, 245, 247, 0.25)" stroke-width="1.2"/>
+    <rect x="58" y="36" width="124" height="168" rx="14" fill="url(#airScreen)" stroke="#111116" stroke-width="1"/>
+    
+    <!-- Landscape Front Camera Sensor -->
+    <circle cx="120" cy="40" r="1.8" fill="#303038"/>
+
+    <!-- Subtle Glare -->
+    <path d="M 60 40 L 160 185 L 145 190 L 60 75 Z" fill="#FFF" opacity="0.035"/>
+  </g>
+</svg>

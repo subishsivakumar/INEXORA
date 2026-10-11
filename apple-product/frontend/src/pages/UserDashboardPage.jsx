@@ -312,13 +312,14 @@ export default function UserDashboardPage() {
                       <div>
                         <div style={{ height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px', backgroundColor: '#FFFFFF', borderRadius: '12px', padding: '12px' }}>
                           <img
-                            src={item.imageUrl || '/images/fallback.svg'}
+                            src={item.imageUrl || (item.productSlug ? `/images/products/${item.productSlug}.svg` : '/images/fallback.svg')}
                             alt={item.productName || ''}
                             style={{ maxHeight: '120px', maxWidth: '100%', objectFit: 'contain' }}
                             loading="lazy"
+                            referrerPolicy="no-referrer"
                             onError={(e) => {
                               e.currentTarget.onerror = null;
-                              e.currentTarget.src = '/images/fallback.svg';
+                              e.currentTarget.src = item.productSlug ? `/images/products/${item.productSlug}.svg` : '/images/fallback.svg';
                             }}
                           />
                         </div>

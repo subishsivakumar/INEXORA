@@ -72,7 +72,7 @@ export default function ProductDetailPage() {
   const wishlisted = isInWishlist(product.id);
   const currentPrice = selectedVariant ? selectedVariant.priceInr : product.basePriceInr;
   const images = product.images || [];
-  const currentImageUrl = images[selectedImageIndex]?.imageUrl || product.primaryImageUrl;
+  const currentImageUrl = images[selectedImageIndex]?.imageUrl || product.primaryImageUrl || `/images/products/${product.slug}.svg`;
 
   // Extract unique storage and colour options
   const uniqueColours = Array.from(
@@ -177,11 +177,21 @@ export default function ProductDetailPage() {
               }}
             >
               <img
-                src={currentImageUrl || '/images/fallback.svg'}
+                src={currentImageUrl || `/images/products/${product.slug}.svg`}
                 alt={images[selectedImageIndex]?.altText || product.name}
+                referrerPolicy="no-referrer"
                 onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = '/images/fallback.svg';
+                  const stage = e.currentTarget.dataset.fallbackStage || 'main';
+                  if (stage === 'main') {
+                    e.currentTarget.dataset.fallbackStage = 'localProduct';
+                    e.currentTarget.src = `/images/products/${product.slug}.svg`;
+                  } else if (stage === 'localProduct') {
+                    e.currentTarget.dataset.fallbackStage = 'category';
+                    e.currentTarget.src = `/images/categories/${product.categorySlug}.svg`;
+                  } else {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = '/images/fallback.svg';
+                  }
                 }}
                 style={{
                   maxHeight: '380px',
@@ -255,11 +265,12 @@ export default function ProductDetailPage() {
                     }}
                   >
                     <img
-                      src={img.imageUrl || '/images/fallback.svg'}
+                      src={img.imageUrl || `/images/products/${product.slug}.svg`}
                       alt={img.altText || ''}
+                      referrerPolicy="no-referrer"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = '/images/fallback.svg';
+                        e.currentTarget.src = `/images/products/${product.slug}.svg`;
                       }}
                       style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                     />

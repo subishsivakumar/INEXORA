@@ -351,13 +351,14 @@ export default function CheckoutPage() {
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <img
-                      src={item.imageUrl || '/images/fallback.svg'}
+                      src={item.imageUrl || (item.productSlug ? `/images/products/${item.productSlug}.svg` : '/images/fallback.svg')}
                       alt=""
                       style={{ width: '40px', height: '40px', objectFit: 'contain' }}
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = '/images/fallback.svg';
+                        e.currentTarget.src = item.productSlug ? `/images/products/${item.productSlug}.svg` : '/images/fallback.svg';
                       }}
                     />
                     <div>

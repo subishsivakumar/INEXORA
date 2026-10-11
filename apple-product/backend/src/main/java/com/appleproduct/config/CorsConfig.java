@@ -21,6 +21,8 @@ public class CorsConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         List<String> origins = Arrays.asList(allowedOrigins.split(","));
         configuration.setAllowedOrigins(origins);
+        configuration.addAllowedOriginPattern("https://*.vercel.app");
+        configuration.addAllowedOriginPattern("https://*.onrender.com");
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin", "X-Session-Token"));
         configuration.setExposedHeaders(Arrays.asList("Authorization", "Set-Cookie"));

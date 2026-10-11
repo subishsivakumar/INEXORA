@@ -133,13 +133,14 @@ export default function CartDrawer() {
                     }}
                   >
                     <img
-                      src={item.imageUrl || '/images/fallback.svg'}
+                      src={item.imageUrl || (item.slug ? `/images/products/${item.slug}.svg` : '/images/fallback.svg')}
                       alt={item.productName}
                       style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = '/images/fallback.svg';
+                        e.currentTarget.src = item.slug ? `/images/products/${item.slug}.svg` : '/images/fallback.svg';
                       }}
                     />
                   </div>

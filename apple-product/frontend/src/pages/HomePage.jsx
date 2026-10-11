@@ -420,12 +420,22 @@ export default function HomePage() {
               }}
             >
               <img
-                src={currentHero.imageUrl || '/images/fallback.svg'}
+                src={currentHero.imageUrl || `/images/products/${currentHero.slug}.svg`}
                 alt={currentHero.name}
                 loading="lazy"
+                referrerPolicy="no-referrer"
                 onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = '/images/fallback.svg';
+                  const stage = e.currentTarget.dataset.fallbackStage || 'hero';
+                  if (stage === 'hero') {
+                    e.currentTarget.dataset.fallbackStage = 'localProduct';
+                    e.currentTarget.src = `/images/products/${currentHero.slug}.svg`;
+                  } else if (stage === 'localProduct') {
+                    e.currentTarget.dataset.fallbackStage = 'category';
+                    e.currentTarget.src = `/images/categories/${currentHero.categorySlug}.svg`;
+                  } else {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = '/images/fallback.svg';
+                  }
                 }}
                 style={{
                   maxHeight: '460px',
@@ -607,12 +617,13 @@ export default function HomePage() {
               >
                 {cat.imageUrl && (
                   <img
-                    src={cat.imageUrl}
+                    src={cat.imageUrl || `/images/categories/${cat.slug}.svg`}
                     alt={cat.name}
                     loading="lazy"
+                    referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = '/images/fallback.svg';
+                      e.currentTarget.src = `/images/categories/${cat.slug}.svg`;
                     }}
                     style={{ maxHeight: '80px', maxWidth: '80px', objectFit: 'contain' }}
                   />
@@ -740,9 +751,19 @@ export default function HomePage() {
                           src={activeFinish.img}
                           alt={`${model.name} in ${activeFinish.name}`}
                           loading="lazy"
+                          referrerPolicy="no-referrer"
                           onError={(e) => {
-                            e.currentTarget.onerror = null;
-                            e.currentTarget.src = '/images/fallback.svg';
+                            const stage = e.currentTarget.dataset.fallbackStage || 'finish';
+                            if (stage === 'finish') {
+                              e.currentTarget.dataset.fallbackStage = 'localProduct';
+                              e.currentTarget.src = `/images/products/${model.slug}.svg`;
+                            } else if (stage === 'localProduct') {
+                              e.currentTarget.dataset.fallbackStage = 'category';
+                              e.currentTarget.src = '/images/categories/iphone.svg';
+                            } else {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = '/images/fallback.svg';
+                            }
                           }}
                           style={{
                             maxHeight: '105px',

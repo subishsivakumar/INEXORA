@@ -42,6 +42,7 @@ class ThreeErrorBoundary extends Component {
               src={this.props.fallbackImageUrl}
               alt=""
               style={{ maxHeight: '220px', maxWidth: '100%', objectFit: 'contain', marginBottom: '16px' }}
+              referrerPolicy="no-referrer"
               onError={(e) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src = '/images/fallback.svg';

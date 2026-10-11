@@ -165,13 +165,14 @@ export default function ComparisonPage() {
 
                       <div style={{ height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                         <img
-                          src={prod.images?.[0]?.imageUrl || prod.primaryImageUrl || '/images/fallback.svg'}
+                          src={prod.images?.[0]?.imageUrl || prod.primaryImageUrl || `/images/products/${prod.slug}.svg`}
                           alt={prod.name}
                           style={{ maxHeight: '120px', maxWidth: '100%', objectFit: 'contain' }}
                           loading="lazy"
+                          referrerPolicy="no-referrer"
                           onError={(e) => {
                             e.currentTarget.onerror = null;
-                            e.currentTarget.src = '/images/fallback.svg';
+                            e.currentTarget.src = `/images/products/${prod.slug}.svg`;
                           }}
                         />
                       </div>
@@ -321,13 +322,14 @@ export default function ComparisonPage() {
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                       <img
-                        src={p.primaryImageUrl || '/images/fallback.svg'}
+                        src={p.primaryImageUrl || `/images/products/${p.slug}.svg`}
                         alt=""
                         style={{ width: '40px', height: '40px', objectFit: 'contain' }}
                         loading="lazy"
+                        referrerPolicy="no-referrer"
                         onError={(e) => {
                           e.currentTarget.onerror = null;
-                          e.currentTarget.src = '/images/fallback.svg';
+                          e.currentTarget.src = `/images/products/${p.slug}.svg`;
                         }}
                       />
                       <div>

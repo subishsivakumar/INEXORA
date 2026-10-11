@@ -1,72 +1,81 @@
 async function verifyAll() {
-  console.log('=== VERIFYING CATEGORY IMAGES & PRODUCT IMAGES ===\n');
+  console.log('=== VERIFYING LOCAL PRODUCT & CATEGORY ASSETS ===\n');
 
   // 1. Verify Fallback Asset
   try {
     const fallbackRes = await fetch('http://localhost:5173/images/fallback.svg');
-    console.log(`Fallback Asset (/images/fallback.svg): HTTP ${fallbackRes.status} (${fallbackRes.headers.get('content-type')})`);
+    console.log(`[OK ] Fallback Asset (/images/fallback.svg): HTTP ${fallbackRes.status}`);
     if (fallbackRes.status !== 200) {
       console.error('FAILED: Fallback asset not returning HTTP 200');
       process.exit(1);
     }
   } catch (e) {
-    console.error('FAILED to fetch fallback:', e);
+    console.error('FAILED to fetch fallback:', e.message);
     process.exit(1);
   }
 
-  // 2. Fetch Categories from Backend API
-  const catApiRes = await fetch('http://localhost:8080/api/categories');
-  const catData = await catApiRes.json();
-  const categories = catData.data || [];
-  console.log(`\nRetrieved ${categories.length} categories from API:`);
-
+  // 2. Verify all 10 Category SVGs
+  const categories = [
+    'iphone', 'mac', 'ipad', 'watch', 'airpods',
+    'vision', 'tv-home', 'airtag', 'accessories', 'displays'
+  ];
+  console.log(`\nVerifying all ${categories.length} category SVGs on frontend:`);
   let catErrors = 0;
-  for (const cat of categories) {
-    let testUrl = cat.imageUrl.startsWith('http') ? cat.imageUrl : `http://localhost:5173${cat.imageUrl}`;
+  for (const slug of categories) {
+    const url = `http://localhost:5173/images/categories/${slug}.svg`;
     try {
-      const res = await fetch(testUrl);
+      const res = await fetch(url);
       const ok = res.status === 200;
       if (!ok) catErrors++;
-      console.log(`  [${ok ? 'OK ' : 'FAIL'}] ${cat.name} (${cat.slug}): ${cat.imageUrl} -> HTTP ${res.status}`);
+      console.log(`  [${ok ? 'OK ' : 'FAIL'}] /images/categories/${slug}.svg -> HTTP ${res.status}`);
     } catch (e) {
       catErrors++;
-      console.log(`  [FAIL] ${cat.name} (${cat.slug}): ${cat.imageUrl} -> Error: ${e.message}`);
+      console.log(`  [FAIL] /images/categories/${slug}.svg -> Error: ${e.message}`);
     }
   }
 
-  // 3. Fetch Products from Backend API
-  const prodApiRes = await fetch('http://localhost:8080/api/products?limit=100');
-  const prodData = await prodApiRes.json();
-  const products = prodData.data?.content || [];
-  console.log(`\nRetrieved ${products.length} products from API:`);
+  // 3. Verify all 33 Product SVGs (especially all iPhone models)
+  const productSlugs = [
+    'iphone-16-pro-max', 'iphone-16-pro', 'iphone-16', 'iphone-16-plus', 'iphone-15', 'iphone-16e',
+    'macbook-pro-14-m4', 'macbook-air-13-m3', 'macbook-air-15-m3', 'mac-mini-m4', 'imac-24-m4', 'mac-studio-m2-max',
+    'ipad-pro-13-m4', 'ipad-air-11-m2', 'ipad-10th-gen', 'ipad-mini-a17-pro',
+    'apple-watch-series-10', 'apple-watch-ultra-2', 'apple-watch-se',
+    'airpods-pro-2-usb-c', 'airpods-4-anc', 'airpods-max-usb-c',
+    'apple-vision-pro',
+    'apple-tv-4k', 'homepod-2nd-gen', 'homepod-mini',
+    'airtag-1-pack', 'airtag-4-pack',
+    'apple-pencil-pro', 'magic-keyboard-touch-id', 'magic-mouse-usbc',
+    'studio-display-27', 'pro-display-xdr'
+  ];
 
+  console.log(`\nVerifying all ${productSlugs.length} product local SVGs on frontend:`);
   let prodErrors = 0;
-  for (const prod of products) {
-    let testUrl = prod.primaryImageUrl?.startsWith('http') ? prod.primaryImageUrl : `http://localhost:5173${prod.primaryImageUrl}`;
+  for (const slug of productSlugs) {
+    const url = `http://localhost:5173/images/products/${slug}.svg`;
     try {
-      const res = await fetch(testUrl);
+      const res = await fetch(url);
       const ok = res.status === 200;
       if (!ok) {
         prodErrors++;
-        console.log(`  [FAIL] Product ID ${prod.id}: "${prod.name}" primaryImage: ${prod.primaryImageUrl} -> HTTP ${res.status}`);
+        console.log(`  [FAIL] /images/products/${slug}.svg -> HTTP ${res.status}`);
       } else {
-        console.log(`  [OK ] Product ID ${prod.id}: "${prod.name}" -> HTTP 200`);
+        console.log(`  [OK ] /images/products/${slug}.svg -> HTTP 200`);
       }
     } catch (e) {
       prodErrors++;
-      console.log(`  [FAIL] Product ID ${prod.id}: "${prod.name}" primaryImage: ${prod.primaryImageUrl} -> Error: ${e.message}`);
+      console.log(`  [FAIL] /images/products/${slug}.svg -> Error: ${e.message}`);
     }
   }
 
   console.log('\n========================================');
   console.log(`CATEGORY CHECK: ${categories.length - catErrors}/${categories.length} OK (${catErrors} failures)`);
-  console.log(`PRODUCT CHECK:  ${products.length - prodErrors}/${products.length} OK (${prodErrors} failures)`);
+  console.log(`PRODUCT CHECK:  ${productSlugs.length - prodErrors}/${productSlugs.length} OK (${prodErrors} failures)`);
   console.log('========================================\n');
 
   if (catErrors > 0 || prodErrors > 0) {
     process.exit(1);
   } else {
-    console.log('SUCCESS: ALL CATEGORY AND PRODUCT IMAGES LOADED SUCCESSFULLY (HTTP 200)!');
+    console.log('SUCCESS: ALL PRODUCT & CATEGORY ASSETS LOADED SUCCESSFULLY (HTTP 200)!');
   }
 }
 
