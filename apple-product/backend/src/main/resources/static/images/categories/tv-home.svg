@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tvBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2C2C32"/>
+      <stop offset="100%" stop-color="#141418"/>
+    </linearGradient>
+    <linearGradient id="hpMesh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34343A"/>
+      <stop offset="50%" stop-color="#1E1E24"/>
+      <stop offset="100%" stop-color="#111116"/>
+    </linearGradient>
+    <linearGradient id="remoteAlum" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2F2F6"/>
+      <stop offset="100%" stop-color="#D0D0D8"/>
+    </linearGradient>
+    <filter id="tvShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#tvShadow)">
+    <!-- HomePod Cylindrical Silhouette on Right -->
+    <rect x="115" y="58" width="86" height="114" rx="38" fill="url(#hpMesh)" stroke="rgba(245, 245, 247, 0.18)" stroke-width="1.2"/>
+    <!-- Top Touch Surface -->
+    <ellipse cx="158" cy="62" rx="36" ry="6" fill="#0C0C10" stroke="rgba(245, 245, 247, 0.2)" stroke-width="0.8"/>
+    <!-- Mesh Texture Accent Rings -->
+    <ellipse cx="158" cy="80" rx="40" ry="4" fill="none" stroke="rgba(245, 245, 247, 0.05)" stroke-width="1"/>
+    <ellipse cx="158" cy="110" rx="42" ry="4" fill="none" stroke="rgba(245, 245, 247, 0.05)" stroke-width="1"/>
+    <ellipse cx="158" cy="140" rx="40" ry="4" fill="none" stroke="rgba(245, 245, 247, 0.05)" stroke-width="1"/>
+
+    <!-- Apple TV 4K Black Matte Box on Left -->
+    <rect x="38" y="120" width="82" height="52" rx="14" fill="url(#tvBox)" stroke="rgba(245, 245, 247, 0.22)" stroke-width="1.2"/>
+    <!-- Top Apple TV Emblem Silhouette -->
+    <text x="79" y="148" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700" fill="#F5F5F7" opacity="0.3" text-anchor="middle">
+      tv 4K
+    </text>
+
+    <!-- Siri Remote in Aluminum Next to Apple TV -->
+    <rect x="24" y="80" width="22" height="92" rx="10" fill="url(#remoteAlum)" stroke="rgba(0,0,0,0.3)" stroke-width="0.8"/>
+    <!-- Clickpad Circle -->
+    <circle cx="35" cy="96" r="7" fill="#2E2E34"/>
+    <circle cx="35" cy="96" r="2" fill="#EAEAEF"/>
+  </g>
+</svg>

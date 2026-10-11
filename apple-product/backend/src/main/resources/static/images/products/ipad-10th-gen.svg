@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ipadBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A6A92"/>
+      <stop offset="100%" stop-color="#1E3E58"/>
+    </linearGradient>
+    <linearGradient id="ipad10Screen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E2832"/>
+      <stop offset="100%" stop-color="#0E161E"/>
+    </linearGradient>
+    <filter id="ipad10Shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#ipad10Shadow)">
+    <rect x="52" y="30" width="136" height="180" rx="18" fill="url(#ipadBlue)" stroke="rgba(245, 245, 247, 0.25)" stroke-width="1.2"/>
+    <rect x="58" y="36" width="124" height="168" rx="14" fill="url(#ipad10Screen)" stroke="#0E161E" stroke-width="1"/>
+    
+    <!-- Landscape 12MP Camera -->
+    <circle cx="120" cy="40" r="1.8" fill="#3A6A92"/>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" width="100%" height="100%">
+  <defs>
+    <!-- Anodized Silver Aluminum Finish -->
+    <linearGradient id="displaySilver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E4E5E8"/>
+      <stop offset="50%" stop-color="#C2C4CA"/>
+      <stop offset="100%" stop-color="#9A9DA4"/>
+    </linearGradient>
+
+    <!-- 5K Retina Display Glass -->
+    <linearGradient id="displayGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18191D"/>
+      <stop offset="100%" stop-color="#08090B"/>
+    </linearGradient>
+
+    <linearGradient id="displayGoldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <filter id="displayShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#displayShadow)">
+    <!-- 27-inch Aluminum Chassis -->
+    <rect x="36" y="24" width="248" height="152" rx="14" fill="url(#displaySilver)" stroke="url(#displayGoldRim)" stroke-width="1.6"/>
+    
+    <!-- 5K Retina Display Panel with Slim Borders -->
+    <rect x="42" y="30" width="236" height="140" rx="8" fill="url(#displayGlass)" stroke="#111" stroke-width="1"/>
+
+    <!-- 12MP Ultra-Wide Camera with Center Stage in Top Border -->
+    <circle cx="160" cy="34" r="2.2" fill="#202228"/>
+    <circle cx="160" cy="34" r="1" fill="#4B6584" opacity="0.8"/>
+
+    <!-- Diagonal Specular Glare -->
+    <path d="M 46 34 L 270 165 L 245 168 L 46 65 Z" fill="#FFFFFF" opacity="0.04"/>
+
+    <!-- Tilt-Adjustable Aluminum Stand Arm -->
+    <path d="M 148 176 L 172 176 L 166 226 L 154 226 Z" fill="url(#displaySilver)" stroke="url(#displayGoldRim)" stroke-width="1"/>
+
+    <!-- Wide Cantilevered Aluminum Foot Base -->
+    <rect x="110" y="226" width="100" height="8" rx="3" fill="url(#displaySilver)" stroke="url(#displayGoldRim)" stroke-width="1.2"/>
+    <rect x="112" y="227" width="96" height="1.5" rx="0.7" fill="#FFFFFF" opacity="0.6"/>
+  </g>
+</svg>

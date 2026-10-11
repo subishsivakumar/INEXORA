@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <radialGradient id="airtagSteel" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#E2E2E8"/>
+      <stop offset="70%" stop-color="#AEAEB8"/>
+      <stop offset="100%" stop-color="#70707C"/>
+    </radialGradient>
+    <radialGradient id="airtagWhite" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#EDEDF4"/>
+      <stop offset="100%" stop-color="#D4D4DE"/>
+    </radialGradient>
+    <filter id="airtagShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#airtagShadow)">
+    <!-- Primary Polished Stainless Steel Disc -->
+    <circle cx="120" cy="120" r="64" fill="url(#airtagSteel)" stroke="rgba(245, 245, 247, 0.4)" stroke-width="1.5"/>
+
+    <!-- Inner Polished Core -->
+    <circle cx="120" cy="120" r="54" fill="url(#airtagWhite)" stroke="#A0A0AA" stroke-width="0.8"/>
+
+    <!-- Stainless Apple Logo Center Inlay -->
+    <g transform="translate(112, 107) scale(0.65)" fill="#686872">
+      <path d="M15.5 0C14 0 11.5 1 10 2.5C8.5 4 7.5 6.5 8 9C10 9 12 8 13.5 6.5C15 5 16 2.5 15.5 0Z"/>
+      <path d="M19.5 9.5C16.5 9.5 15 8 13 8C11 8 9.5 9.5 7.5 9.5C4 9.5 1 12.5 1 18C1 23.5 6 30 9 30C10.5 30 11.5 29 13 29C14.5 29 15.5 30 17 30C20 30 25 23.5 25 18C23 17 22 15 22 13C22 10.5 23.5 9.5 24 9.5C22.5 9.5 20.5 9.5 19.5 9.5Z"/>
+    </g>
+
+    <!-- Circular Precision Finding Engraved Ring -->
+    <circle cx="120" cy="120" r="46" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1.5" stroke-dasharray="4 6"/>
+  </g>
+</svg>

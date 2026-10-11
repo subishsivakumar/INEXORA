@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="visGlass" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18181E"/>
+      <stop offset="25%" stop-color="#363642"/>
+      <stop offset="50%" stop-color="#1A1A22"/>
+      <stop offset="75%" stop-color="#3A3A46"/>
+      <stop offset="100%" stop-color="#16161C"/>
+    </linearGradient>
+    <linearGradient id="visFrame" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4C4C54"/>
+      <stop offset="100%" stop-color="#24242A"/>
+    </linearGradient>
+    <linearGradient id="visStrap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#383840"/>
+      <stop offset="100%" stop-color="#222228"/>
+    </linearGradient>
+    <filter id="visShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Solo Knit Headband in Background -->
+  <path d="M 32 110 C 24 110 20 120 20 130 C 20 145 35 155 55 155 L 75 145" fill="none" stroke="url(#visStrap)" stroke-width="26" stroke-linecap="round"/>
+  <path d="M 208 110 C 216 110 220 120 220 130 C 220 145 205 155 185 155 L 165 145" fill="none" stroke="url(#visStrap)" stroke-width="26" stroke-linecap="round"/>
+
+  <g filter="url(#visShadow)">
+    <!-- Light Seal Cushioned Frame -->
+    <path d="M 46 116 C 46 92 80 82 120 82 C 160 82 194 92 194 116 C 194 140 160 148 120 148 C 80 148 46 140 46 116 Z" fill="url(#visFrame)"/>
+
+    <!-- Laminated Curved Front Enclosure Glass (EyeSight) -->
+    <path d="M 52 116 C 52 95 82 86 120 86 C 158 86 188 95 188 116 C 188 136 158 143 120 143 C 82 143 52 136 52 116 Z" fill="url(#visGlass)" stroke="rgba(245, 245, 247, 0.3)" stroke-width="1.2"/>
+
+    <!-- Subtle Glare Waves across Front Glass -->
+    <ellipse cx="100" cy="112" rx="36" ry="16" fill="#FFFFFF" opacity="0.04" transform="rotate(-8, 100, 112)"/>
+    <ellipse cx="146" cy="118" rx="28" ry="12" fill="#FFFFFF" opacity="0.03" transform="rotate(6, 146, 118)"/>
+
+    <!-- Digital Crown on Top Right of Aluminum Frame -->
+    <rect x="156" y="80" width="12" height="6" rx="2" fill="#6A6A74" stroke="rgba(245,245,247,0.3)" stroke-width="0.8"/>
+  </g>
+</svg>

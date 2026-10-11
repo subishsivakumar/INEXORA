@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="miniBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#46464E"/>
+      <stop offset="100%" stop-color="#222228"/>
+    </linearGradient>
+    <linearGradient id="miniScreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#202026"/>
+      <stop offset="100%" stop-color="#0E0E12"/>
+    </linearGradient>
+    <filter id="miniShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#miniShadow)">
+    <!-- Compact 8.3-inch Form Factor -->
+    <rect x="62" y="34" width="116" height="172" rx="16" fill="url(#miniBody)" stroke="rgba(245, 245, 247, 0.25)" stroke-width="1.2"/>
+    <rect x="67" y="39" width="106" height="162" rx="12" fill="url(#miniScreen)" stroke="#111116" stroke-width="1"/>
+    
+    <!-- Top Button with Touch ID -->
+    <rect x="145" y="32" width="22" height="2" rx="1" fill="#6A6A74"/>
+    
+    <!-- Camera -->
+    <circle cx="120" cy="45" r="1.8" fill="#303038"/>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 220" width="100%" height="100%">
+  <defs>
+    <!-- Anodized Silver Aluminum -->
+    <linearGradient id="miniSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E4E5E8"/>
+      <stop offset="50%" stop-color="#C2C4CA"/>
+      <stop offset="100%" stop-color="#9A9DA4"/>
+    </linearGradient>
+
+    <linearGradient id="miniGoldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <filter id="miniShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#miniShadow)">
+    <!-- 5x5-inch Compact Desktop Enclosure -->
+    <rect x="42" y="62" width="176" height="96" rx="22" fill="url(#miniSilver)" stroke="url(#miniGoldRim)" stroke-width="1.5"/>
+
+    <!-- Subtle Bevel / Highlight Line -->
+    <rect x="46" y="66" width="168" height="2" rx="1" fill="#FFFFFF" opacity="0.6"/>
+
+    <!-- Front Ports: Dual USB-C & Headphone Jack -->
+    <rect x="68" y="115" width="12" height="4" rx="2" fill="#202226" stroke="#D4AF37" stroke-width="0.6"/>
+    <rect x="88" y="115" width="12" height="4" rx="2" fill="#202226" stroke="#D4AF37" stroke-width="0.6"/>
+    <circle cx="114" cy="117" r="3" fill="#202226" stroke="#888" stroke-width="0.6"/>
+
+    <!-- Front Power Status LED Indicator -->
+    <circle cx="192" cy="117" r="1.5" fill="#FFFFFF"/>
+    <circle cx="192" cy="117" r="3" fill="#FFFFFF" opacity="0.2"/>
+
+    <!-- Apple Silhouette Center Accent -->
+    <g transform="translate(122, 75) scale(0.55)" fill="#555860" opacity="0.4">
+      <path d="M15.5 0C14 0 11.5 1 10 2.5C8.5 4 7.5 6.5 8 9C10 9 12 8 13.5 6.5C15 5 16 2.5 15.5 0Z"/>
+      <path d="M19.5 9.5C16.5 9.5 15 8 13 8C11 8 9.5 9.5 7.5 9.5C4 9.5 1 12.5 1 18C1 23.5 6 30 9 30C10.5 30 11.5 29 13 29C14.5 29 15.5 30 17 30C20 30 25 23.5 25 18C23 17 22 15 22 13C22 10.5 23.5 9.5 24 9.5C22.5 9.5 20.5 9.5 19.5 9.5Z"/>
+    </g>
+
+    <!-- Base Air Intake Rim -->
+    <rect x="62" y="156" width="136" height="6" rx="3" fill="#1C1D20" opacity="0.7"/>
+  </g>
+</svg>

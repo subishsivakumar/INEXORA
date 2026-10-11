@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%">
+  <defs>
+    <!-- iPhone 15 Color-Infused Glass Back (Blue Edition) -->
+    <linearGradient id="ip15Body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3C5C7A"/>
+      <stop offset="40%" stop-color="#28445E"/>
+      <stop offset="80%" stop-color="#1B3147"/>
+      <stop offset="100%" stop-color="#0E1D2E"/>
+    </linearGradient>
+
+    <linearGradient id="ip15Screen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141416"/>
+      <stop offset="50%" stop-color="#09090B"/>
+      <stop offset="100%" stop-color="#040405"/>
+    </linearGradient>
+
+    <!-- Warm Gold / Champagne Edge Accent -->
+    <linearGradient id="ip15Rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#6F9BC8" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <!-- Square Camera Plateau with Diagonal Lenses -->
+    <linearGradient id="ip15Plateau" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34506E"/>
+      <stop offset="100%" stop-color="#192A3D"/>
+    </linearGradient>
+
+    <radialGradient id="ip15LensReflect" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#282836"/>
+      <stop offset="45%" stop-color="#12121A"/>
+      <stop offset="85%" stop-color="#050508"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <filter id="ip15Shadow" x="-25%" y="-20%" width="150%" height="145%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#ip15Shadow)">
+    <!-- Aerograde Aluminum Chasis - 6.1-inch Proportion with Contoured Edge -->
+    <rect x="96" y="28" width="128" height="264" rx="32" fill="url(#ip15Body)" stroke="url(#ip15Rim)" stroke-width="1.8"/>
+    
+    <!-- Super Retina XDR Screen -->
+    <rect x="101" y="33" width="118" height="254" rx="28" fill="url(#ip15Screen)" stroke="#111114" stroke-width="1"/>
+    
+    <!-- Dynamic Island -->
+    <rect x="143" y="44" width="34" height="10" rx="5" fill="#000000"/>
+    <circle cx="167" cy="49" r="2.8" fill="#181822"/>
+
+    <!-- Subtle Diagonal Glare -->
+    <path d="M 104 44 L 210 206 L 196 220 L 104 74 Z" fill="#FFFFFF" opacity="0.04"/>
+
+    <!-- Left Controls: Ring/Silent Switch & Volume Buttons -->
+    <rect x="93.5" y="74" width="2.5" height="10" rx="1.2" fill="#B08D42"/>
+    <rect x="93.5" y="95" width="2.5" height="22" rx="1.2" fill="#3C5C7A"/>
+    <rect x="93.5" y="124" width="2.5" height="22" rx="1.2" fill="#3C5C7A"/>
+
+    <!-- Right Controls: Power Button -->
+    <rect x="224" y="90" width="2.5" height="34" rx="1.2" fill="#3C5C7A"/>
+
+    <!-- iPhone 15 Diagonal Dual Camera Square Plateau -->
+    <g transform="translate(104, 52) scale(0.62)" opacity="0.95">
+      <rect x="4" y="4" width="68" height="68" rx="18" fill="url(#ip15Plateau)" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1.2"/>
+      
+      <!-- Top-Left 48MP Main Camera Lens -->
+      <circle cx="24" cy="24" r="14" fill="#122336" stroke="#D4AF37" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="10" fill="url(#ip15LensReflect)"/>
+      <circle cx="22" cy="22" r="3" fill="#6F9BC8" opacity="0.65"/>
+
+      <!-- Bottom-Right Ultra-Wide Camera Lens (Diagonal Layout) -->
+      <circle cx="52" cy="52" r="14" fill="#122336" stroke="#D4AF37" stroke-width="1.5"/>
+      <circle cx="52" cy="52" r="10" fill="url(#ip15LensReflect)"/>
+      <circle cx="50" cy="50" r="3" fill="#6F9BC8" opacity="0.65"/>
+
+      <!-- Top-Right True Tone Flash -->
+      <circle cx="52" cy="24" r="5" fill="#FBF8EE" stroke="#D4AF37" stroke-width="0.8"/>
+      <!-- Bottom-Left Microphone -->
+      <circle cx="24" cy="52" r="2.5" fill="#0E1D2E"/>
+    </g>
+
+    <rect x="132" y="280" width="56" height="2" rx="1" fill="#FFFFFF" opacity="0.25"/>
+  </g>
+</svg>

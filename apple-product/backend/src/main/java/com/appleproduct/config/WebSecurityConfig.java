@@ -63,8 +63,12 @@ public class WebSecurityConfig {
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .authorizeHttpRequests(auth -> auth
+                // Public frontend static assets and SPA routes
+                .requestMatchers("/", "/index.html", "/assets/**", "/images/**", "/models/**", "/draco/**", "/favicon.svg", "/icons.svg").permitAll()
+                .requestMatchers("/cart", "/checkout", "/compare", "/account", "/admin", "/products", "/products/**", "/product/**").permitAll()
+                
                 // Public health check and root ping
-                .requestMatchers("/", "/health", "/api/health").permitAll()
+                .requestMatchers("/health", "/api/health").permitAll()
                 
                 // Public authentication endpoints
                 .requestMatchers("/api/auth/register", "/api/auth/login", "/api/auth/logout").permitAll()
