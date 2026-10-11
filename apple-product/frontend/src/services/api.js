@@ -1,5 +1,5 @@
-// API Client for Apple Product Backend
-const API_BASE_URL = '/api';
+// API Client for iNexora Backend
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 // Retrieve or generate guest session token
 export function getGuestSessionToken() {
