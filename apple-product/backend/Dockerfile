@@ -1,16 +1,15 @@
-# Build stage
-FROM eclipse-temurin:21-jdk-jammy AS build
+# Build stage using official Maven + Temurin 21 image
+FROM maven:3.9-eclipse-temurin-21-jammy AS build
 WORKDIR /app
 
-COPY pom.xml mvnw ./
-COPY .mvn .mvn
-RUN chmod +x ./mvnw
-RUN ./mvnw dependency:go-offline -B || true
-
+# Copy pom.xml and source code
+COPY pom.xml ./pom.xml
 COPY src ./src
-RUN ./mvnw clean package -DskipTests
 
-# Run stage
+# Package application jar
+RUN mvn clean package -DskipTests
+
+# Run stage with lightweight JRE 21
 FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
