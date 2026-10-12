@@ -6,7 +6,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/apple-product/frontend/dist/$1"
+      "destination": "/frontend/dist/$1"
     }
   ]
 }

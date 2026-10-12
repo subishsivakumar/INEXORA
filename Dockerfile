@@ -3,8 +3,8 @@ FROM maven:3.9-eclipse-temurin-21-jammy AS build
 WORKDIR /app
 
 # Copy pom.xml and source code
-COPY apple-product/backend/pom.xml ./pom.xml
-COPY apple-product/backend/src ./src
+COPY backend/pom.xml ./pom.xml
+COPY backend/src ./src
 
 # Package application jar
 RUN mvn clean package -DskipTests
