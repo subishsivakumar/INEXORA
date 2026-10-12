@@ -23,6 +23,8 @@ public class DataInitializer implements CommandLineRunner {
     private final CategoryRepository categoryRepository;
     private final ProductRepository productRepository;
     private final ProductImageRepository productImageRepository;
+    private final ProductVariantRepository productVariantRepository;
+    private final ProductSpecificationRepository productSpecificationRepository;
     private final PasswordEncoder passwordEncoder;
 
     public DataInitializer(
@@ -31,12 +33,16 @@ public class DataInitializer implements CommandLineRunner {
             CategoryRepository categoryRepository,
             ProductRepository productRepository,
             ProductImageRepository productImageRepository,
+            ProductVariantRepository productVariantRepository,
+            ProductSpecificationRepository productSpecificationRepository,
             PasswordEncoder passwordEncoder) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
         this.productImageRepository = productImageRepository;
+        this.productVariantRepository = productVariantRepository;
+        this.productSpecificationRepository = productSpecificationRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -51,17 +57,24 @@ public class DataInitializer implements CommandLineRunner {
 
         // 2. Initialize Demo Users if missing
         if (!userRepository.existsByEmail("admin@appleproduct.store")) {
-            User admin = new User("admin@appleproduct.store", passwordEncoder.encode("Password@123"), "Apple Product Administrator");
+            User admin = new User("admin@appleproduct.store", passwordEncoder.encode("Customer@Password2026"), "Apple Product Administrator");
             admin.setRoles(new HashSet<>(Arrays.asList(roleUser, roleAdmin)));
             userRepository.save(admin);
             log.info("Initialized default admin user: admin@appleproduct.store");
         }
 
         if (!userRepository.existsByEmail("alex@appleproduct.store")) {
-            User user = new User("alex@appleproduct.store", passwordEncoder.encode("Password@123"), "Alex Rivera");
+            User user = new User("alex@appleproduct.store", passwordEncoder.encode("Customer@Password2026"), "Alex Rivera");
             user.setRoles(new HashSet<>(Collections.singletonList(roleUser)));
             userRepository.save(user);
             log.info("Initialized default user: alex@appleproduct.store");
+        }
+
+        if (!userRepository.existsByEmail("customer@appleproduct.store")) {
+            User customer = new User("customer@appleproduct.store", passwordEncoder.encode("Customer@Password2026"), "Demo Customer");
+            customer.setRoles(new HashSet<>(Collections.singletonList(roleUser)));
+            userRepository.save(customer);
+            log.info("Initialized default customer user: customer@appleproduct.store");
         }
 
         // 3. Initialize Categories and Products if missing
@@ -310,5 +323,54 @@ public class DataInitializer implements CommandLineRunner {
         img.setIsPrimary(true);
         img.setDisplayOrder(1);
         productImageRepository.save(img);
+
+        // Add default product variants with inventory
+        ProductVariant variant1 = new ProductVariant();
+        variant1.setProduct(saved);
+        variant1.setSku(slug.toUpperCase().replace("-", "") + "-256-BLK");
+        variant1.setColourName("Space Black");
+        variant1.setColourHex("#1F2022");
+        variant1.setStorage("256GB");
+        variant1.setRam("8GB");
+        variant1.setPriceInr(BigDecimal.valueOf(priceInr));
+
+        Inventory inv1 = new Inventory();
+        inv1.setVariant(variant1);
+        inv1.setStockQuantity(50);
+        inv1.setLowStockThreshold(5);
+        variant1.setInventory(inv1);
+        productVariantRepository.save(variant1);
+
+        ProductVariant variant2 = new ProductVariant();
+        variant2.setProduct(saved);
+        variant2.setSku(slug.toUpperCase().replace("-", "") + "-512-SLV");
+        variant2.setColourName("Silver");
+        variant2.setColourHex("#E3E4E5");
+        variant2.setStorage("512GB");
+        variant2.setRam("16GB");
+        variant2.setPriceInr(BigDecimal.valueOf(priceInr * 1.15));
+
+        Inventory inv2 = new Inventory();
+        inv2.setVariant(variant2);
+        inv2.setStockQuantity(35);
+        inv2.setLowStockThreshold(5);
+        variant2.setInventory(inv2);
+        productVariantRepository.save(variant2);
+
+        // Add verified technical specifications
+        ProductSpecification spec = new ProductSpecification();
+        spec.setProduct(saved);
+        spec.setChipsetSpec("Apple Silicon Next-Gen Processor");
+        spec.setDisplaySpec("Super Retina XDR / Liquid Retina Display");
+        spec.setCameraSpec("Advanced 48MP Fusion Camera System");
+        spec.setBatterySpec("All-day battery life up to 24+ hours");
+        spec.setStorageOptions("128GB, 256GB, 512GB, 1TB");
+        spec.setMemoryOptions("8GB, 16GB, 24GB Unified Memory");
+        spec.setColoursSpec("Space Black, Silver, Titanium, Natural");
+        spec.setConnectivitySpec("Wi-Fi 6E / Wi-Fi 7, 5G, Bluetooth 5.3, USB-C");
+        spec.setDimensionsSpec("Precision CNC-machined aerospace alloy enclosure");
+        spec.setWeightSpec("Ultra-lightweight ergonomic engineering");
+        spec.setSpecialFeatures("Apple Intelligence, Dynamic Island, Action Button, Ceramic Shield");
+        productSpecificationRepository.save(spec);
     }
 }
